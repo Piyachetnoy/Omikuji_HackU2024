@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify,render_template
 import random
 import os
+from imageprocessing import ModelApply
 
 app = Flask(__name__)
 
@@ -46,8 +47,11 @@ def process_upload():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(file_path)
 
-    # return jsonify({"success": True, "filePath": file_path}), 200
-    return render_template("result.html", name = file_path)
+    # Instantiate ModelApply and process the image
+    model = ModelApply(file_path)
+    processed_file_path = model.getPath()
+
+    return render_template("result.html", name=processed_file_path)
 
 
 if __name__ == '__main__':
