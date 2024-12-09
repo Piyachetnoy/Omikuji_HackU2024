@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 import os
 
 app = Flask(__name__)
@@ -9,6 +9,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Set the upload folder in the app configuration
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Set the template of html file (put htmls in templates folder)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/process-upload', methods=['POST'])
 def process_upload():
