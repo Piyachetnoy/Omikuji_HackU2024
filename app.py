@@ -4,6 +4,7 @@ import os
 from imageprocessing import PreProcessImage
 
 app = Flask(__name__)
+app.config.from_pyfile('settings.py')
 
 # Define the upload folder
 UPLOAD_FOLDER = './static/upload'
