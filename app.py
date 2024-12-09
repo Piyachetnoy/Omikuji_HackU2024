@@ -10,11 +10,6 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # Set the upload folder in the app configuration
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Set allowed extension
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 @app.route('/process-upload', methods=['POST'])
 def process_upload():
     if 'image' not in request.files:
