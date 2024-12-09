@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 # Define the upload folder
-UPLOAD_FOLDER = './upload'
+UPLOAD_FOLDER = './static/upload'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Set the upload folder in the app configuration
@@ -30,7 +30,8 @@ def process_upload():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(file_path)
 
-    return jsonify({"success": True, "filePath": file_path}), 200
+    # return jsonify({"success": True, "filePath": file_path}), 200
+    return render_template("result.html", name = file_path)
 
 if __name__ == '__main__':
     app.run(debug=True)
