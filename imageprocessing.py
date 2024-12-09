@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-class ModelApply():
+class PreProcessImage():
     def __init__(self, image_path):
         self.path = image_path
 
-    def getPath(self):
+    def CannyProcess(self):
         # Load the image
         image = cv2.imread(self.path, cv2.IMREAD_GRAYSCALE)
 
@@ -29,11 +29,10 @@ class ModelApply():
         cv2.imwrite(filename, edges)
 
         return filename
+    
+class ModelApply():
+    def __init__(self, processed_path):
+        self.path = processed_path
 
-# # Display the results
-# plt.figure(figsize=(8, 4))
-# plt.subplot(121), plt.imshow(image, cmap='gray')
-# plt.title('Original Image'), plt.xticks([]), plt.yticks([])
-# plt.subplot(122), plt.imshow(edges, cmap='gray')
-# plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
-# plt.show()
+    def NumberDetect(self):
+        pass

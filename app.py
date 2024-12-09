@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify,render_template
 import random
 import os
-from imageprocessing import ModelApply
+from imageprocessing import PreProcessImage
 
 app = Flask(__name__)
 
@@ -48,8 +48,8 @@ def process_upload():
     file.save(file_path)
 
     # Instantiate ModelApply and process the image
-    model = ModelApply(file_path)
-    processed_file_path = model.getPath()
+    model = PreProcessImage(file_path)
+    processed_file_path = model.CannyProcess()
 
     return render_template("result.html", name=processed_file_path)
 
