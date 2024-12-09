@@ -31,7 +31,6 @@ def random_image():
     random_image = get_random_image()
     return jsonify({'random_image': random_image}) # Return the filename of the random image
 
-
 @app.route('/process-upload', methods=['POST'])
 def process_upload():
     if 'image' not in request.files:
