@@ -47,20 +47,9 @@ Install the required Python modules listed in `requirements.txt`:
 ```bash
 pip install -r requirements.txt
 ```
-### 4. Verify the Installation
-Check if all required packages are installed and the Python version is correct:
-```bash
-python --version
-```
-Ensure it displays `Python 3.10.11`.
-List the installed packages to confirm dependencies:
-```bash
-pip list
-```
-
 ---
 
-### 5. Configure Your Roboflow API Key
+### 4. Configure Your Roboflow API Key
 
 To enable model detection, you need to set up your **Roboflow API key**. Follow these steps:
 
@@ -82,7 +71,7 @@ To enable model detection, you need to set up your **Roboflow API key**. Follow 
     ```
 ---
 
-### 6. Running the Project
+### 5. Running the Project
 
 After completing the installation, you can run the project by executing the appropriate script:
 ```bash
