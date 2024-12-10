@@ -5,14 +5,14 @@ body {
     height: 100vh; /* Full viewport height */
 }
 
-body::before {
+body.result-page::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/img/bg1.jpg'); /* Replace with your photo's path */
+    background-image: url('../images/img/bg/bg1.jpg'); /* Replace with your photo's path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,5 +27,12 @@ body::before {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     position: relative;
     z-index: 1;
+    padding: 20px;
+}
+
+.omikuji {
+    padding: 30px;
+    box-sizing: border-box; /* Ensure padding + border are included in element's total size */
+    border: 8px double crimson; /* Red border around the content */
 }
 
