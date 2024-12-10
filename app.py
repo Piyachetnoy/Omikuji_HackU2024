@@ -53,9 +53,9 @@ def process_upload():
     org_file_path, processed_file_path = model.CannyProcess()
 
     model2 = ModelApply(org_file_path, processed_file_path)
-    detected_file_path = model2.NumberDetect()
+    detected_file_path, kuji_result = model2.NumberDetect()
 
-    return render_template("result.html", name=detected_file_path)
+    return render_template("result.html", name=detected_file_path, number = kuji_result)
 
 
 if __name__ == '__main__':
