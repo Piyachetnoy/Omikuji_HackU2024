@@ -85,7 +85,7 @@ class ModelApply():
         cv2.imwrite(filename, org_image)
 
         return filename
-"""
+    """
 
     def NumberDetect(self):
         CLIENT = InferenceHTTPClient(
