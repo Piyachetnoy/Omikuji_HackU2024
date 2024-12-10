@@ -18,7 +18,7 @@ class PreProcessImage():
     def CannyProcess(self):
         image = cv2.imread(self.path, cv2.IMREAD_GRAYSCALE)
         smoothed_image = cv2.GaussianBlur(image, (7, 7), 0)
-        edges = cv2.Canny(smoothed_image, threshold1=0, threshold2=150)
+        edges = cv2.Canny(smoothed_image, threshold1=0, threshold2=255)
         kernel = np.ones((3, 3), np.uint8)
         thicker_edges = cv2.dilate(edges, kernel, iterations=1)
         inverted_edges = cv2.bitwise_not(thicker_edges)
