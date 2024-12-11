@@ -43,21 +43,32 @@ python -m venv .venv
 ```
 
 ### 3. Install the Dependencies
-Install the required Python modules listed in requirements.txt:
+Install the required Python modules listed in `requirements.txt`:
 ```bash
 pip install -r requirements.txt
 ```
-### 4. Verify the Installation
-Check if all required packages are installed and the Python version is correct:
-```bash
-python --version
-```
-Ensure it displays Python 3.10.11.
-List the installed packages to confirm dependencies:
-```bash
-pip list
-```
+---
 
+### 4. Configure Your Roboflow API Key
+
+To enable model detection, you need to set up your **Roboflow API key**. Follow these steps:
+
+1. **Install `python-dotenv`**  
+    This package allows you to manage environment variables securely.
+    ```bash
+    pip install python-dotenv
+    ```
+2. **Create an `.env File`**  
+    This file will store your API key.
+    ```bash
+    touch .env
+    ```
+3. **Add Your API Key**  
+    Open the `.env` file in any text editor and add the following line:
+    Replace `<YOUR_API_KEY>` with your actual Roboflow API key.
+    ```bash
+    ROBOFLOW_KEY=<YOUR_API_KEY>
+    ```
 ---
 
 ### 5. Running the Project
