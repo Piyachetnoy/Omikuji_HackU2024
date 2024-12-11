@@ -15,6 +15,23 @@ class PreProcessImage():
     def __init__(self, image_path):
         self.path = image_path
 
+    def resize_with_aspect_ratio(self, width=None, height=None):
+        # Get the original image dimensions
+        image_before_resize = cv2.imread(self.path)
+        h, w = image_before_resize.shape[:2]
+        # Calculate the aspect ratio
+        aspect_ratio = w / h
+        if width is None:
+            # Calculate height based on the specified width
+            new_height = int(height / aspect_ratio)
+            resized_image = cv2.resize(image_before_resize, (height, new_height))
+        else:
+            # Calculate width based on the specified height
+            new_width = int(width * aspect_ratio)
+            resized_image = cv2.resize(image_before_resize, (new_width, width))
+        cv2.imwrite(self.path, resized_image)
+        return 
+
     def CannyProcess(self):
         image = cv2.imread(self.path, cv2.IMREAD_GRAYSCALE)
         smoothed_image = cv2.GaussianBlur(image, (7, 7), 0)

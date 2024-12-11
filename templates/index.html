@@ -20,12 +20,13 @@
             <div class="card-body">
                 <form id="uploadForm" action="/process-upload" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="imageUpload" class="form-label">Upload Your Picture</label>
+                        <label for="imageUpload" class="form-label">好きな写真をアップ</label>
                         <input type="file" class="form-control" id="imageUpload" name="image" accept="image/*" required>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 custom-button">Upload</button>
+                    <button type="submit" class="btn btn-primary w-100 custom-button">アップロード</button>
                     <div class="d-flex justify-content-center align-items-center mt-3">
                         <a href="{{ url_for('showcase') }}" class="btn btn-secondary me-2">Showcase</a>
+                        <a href="{{ url_for('manage_uploads') }}" class="btn btn-secondary me-2">Manage</a>
                         <i class="bi bi-image-fill text-warning fs-1"></i>
                     </div>
                 </form>
