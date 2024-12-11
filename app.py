@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify,render_template
+from flask import Flask, request, jsonify, render_template
 import random
 import os
 from imageprocessing import PreProcessImage, ModelApply
@@ -8,7 +8,11 @@ app.config.from_pyfile('settings.py')
 
 # Define the upload folder
 UPLOAD_FOLDER = './static/upload'
+DETECTED_FOLDER = './static/images/detected'
+PROCESSED_FOLDER = './static/images/processed'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(DETECTED_FOLDER, exist_ok=True)
+os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
 # Set the upload folder in the app configuration
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -56,6 +60,39 @@ def process_upload():
     detected_file_path, kuji_result = model2.NumberDetect()
 
     return render_template("result.html", name=detected_file_path, number = kuji_result)
+
+@app.route('/manage_uploads')
+def manage_uploads():
+    upload_folder = os.path.join(app.root_path, 'static', 'upload')
+    images = os.listdir(upload_folder)
+    return render_template('manage_uploads.html', images=images)
+
+@app.route('/delete_image', methods=['POST'])
+def delete_image():
+    data = request.get_json()
+    filename = data.get('filename')
+    if not filename:
+        return jsonify({"error": "Filename not provided"}), 400
+
+    try:
+        # Delete file from upload folder
+        upload_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        if os.path.exists(upload_path):
+            os.remove(upload_path)
+
+        # Delete file from detected folder
+        detected_path = os.path.join(DETECTED_FOLDER, filename)
+        if os.path.exists(detected_path):
+            os.remove(detected_path)
+
+        # Delete file from processed folder
+        processed_path = os.path.join(PROCESSED_FOLDER, filename)
+        if os.path.exists(processed_path):
+            os.remove(processed_path)
+
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
