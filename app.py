@@ -54,7 +54,7 @@ def process_upload():
 
     # Instantiate ModelApply and process the image
     model = PreProcessImage(file_path)
-    model.resize_with_aspect_ratio(width=400)
+    model.resize_with_aspect_ratio(width=500)
     org_file_path, processed_file_path = model.CannyProcess()
 
     model2 = ModelApply(org_file_path, processed_file_path)
