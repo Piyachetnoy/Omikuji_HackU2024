@@ -57,6 +57,5 @@ def process_upload():
 
     return render_template("result.html", name=detected_file_path, number = kuji_result)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
