@@ -6,55 +6,51 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="../static/css/styles.css">
     <title>Index</title>
   </head>
   <body class="bg-light index-page">
     <div class="container mt-5">
         <div class="text-center">
-            <h1 class="display-5 text-white text-center">あなたの写真でおみくじを引きましょう</h1>
-            <p class="lead text-center text-white text-nowrap">Upload your picture to reveal your fortune!</p>
+            <h1 class="display-5 text-white">あなたの写真でおみくじを引きましょう</h1>
+            <p class="lead text-white">Upload your picture to reveal your fortune!</p>
         </div>
         <div class="card shadow mx-auto mt-4" style="max-width: 500px;">
             <div class="card-body">
-              <form id="uploadForm" action="/process-upload" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="imageUpload" class="form-label">Upload Your Picture</label>
-                    <input type="file" class="form-control" id="imageUpload" name="image" accept="image/*" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100 custom-button">Upload</button>
-                <br></br>
-                <div class="d-flex align-items-center">
-                  <a href="{{ url_for('showcase') }}" class="btn btn-secondary">Showcase</a>
-                  <i class="bi bi-image-fill text-warning fs-1 ms-2"></i>
-                </div>
-              
-            </form>
+                <form id="uploadForm" action="/process-upload" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="imageUpload" class="form-label">Upload Your Picture</label>
+                        <input type="file" class="form-control" id="imageUpload" name="image" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 custom-button">Upload</button>
+                    <div class="d-flex justify-content-center align-items-center mt-3">
+                        <a href="{{ url_for('showcase') }}" class="btn btn-secondary me-2">Showcase</a>
+                        <i class="bi bi-image-fill text-warning fs-1"></i>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
-      // Array of image paths
-      const images = [
-          '../static/images/img/bg/bg1.jpg',
-          '../static/images/img/bg/bg2.jpg',
-          '../static/images/img/bg/bg3.jpg'
-      ];
-  
-      // Select a random image and apply it to the body
-      const randomImage = images[Math.floor(Math.random() * images.length)];
-      document.body.style.backgroundImage = `url(${randomImage})`;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundPosition = 'center';
-      document.body.style.backgroundRepeat = 'no-repeat';
+        // Array of image paths
+        const images = [
+            '../static/images/img/bg/bg1.jpg',
+            '../static/images/img/bg/bg2.jpg',
+            '../static/images/img/bg/bg3.jpg'
+        ];
 
-      // Fallback background color (optional)
-      document.body.style.backgroundColor = '#f8f9fa';
-    </script>  
+        // Select a random image and apply it to the body
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        document.body.style.backgroundImage = `url(${randomImage})`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundRepeat = 'no-repeat';
+
+        // Fallback background color (optional)
+        document.body.style.backgroundColor = '#f8f9fa';
+    </script>
   </body>
 </html>

@@ -1,28 +1,36 @@
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Adjust text size for small screens */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller font for headers */
+    }
+
+    .card {
+        margin: 0 auto; /* Ensure card is centered */
+        width: 90%; /* Use most of the screen width */
+    }
+
+    .custom-button {
+        font-size: 0.9rem; /* Reduce button font size */
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
     height: 100vh; /* Full viewport height */
 }
 
-body.result-page::before {
+body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the transparency */
-    z-index: -1;
-}
-
-body.index-page::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the transparency */
+    background: rgba(0, 0, 0, 0.5); /* Overlay for better readability */
     z-index: -1;
 }
 
@@ -38,12 +46,12 @@ body.index-page::before {
 
 .custom-button {
     background-color: #28a745; /* Custom green */
-    color: white; /* Text color */
-    border: none; /* Optional: Remove border */
+    color: white;
+    border: none;
+    font-size: 1rem; /* Adjust button size */
+    padding: 0.5rem 1rem;
 }
 
 .custom-button:hover {
-    background-color: #218838; /* Slightly darker shade for hover effect */
+    background-color: #218838;
 }
-
-
