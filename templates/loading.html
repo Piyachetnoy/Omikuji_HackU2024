@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa; /* Light background */
+        }
+        .loading-container {
+            text-align: center;
+        }
+        .loading-text {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6c757d; /* Gray text color */
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <!-- Cute GIF Animation -->
+         <!-- Placeholder for Random GIF -->
+        <img id="loadingGif" src="" alt="Loading animation" class="img-fluid">
+        <!-- Loading Text -->
+    </div>
+
+    <script>
+        // Array of GIF image paths
+        const gifs = [
+            '../static/images/img/loading/1.gif',
+            '../static/images/img/loading/2.gif'
+        ];
+
+        // Select a random GIF
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+        // Set the random GIF as the image source
+        document.getElementById('loadingGif').src = randomGif;
+    </script>
+</body>
+</html>
