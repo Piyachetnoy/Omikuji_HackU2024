@@ -119,7 +119,7 @@ class ModelApply():
             cv2.rectangle(org_image, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
 
             # Crop the region within the bounding box
-            cropped_image = image[y_min:y_max, x_min:x_max]
+            cropped_image = cv2.bitwise_not(image[y_min:y_max, x_min:x_max])
             # Resize the crop to match the bounding box size
             crop_resized = cv2.resize(cropped_image, (x_max - x_min, y_max - y_min))
             # Replace the bounding box area with the resized crop
