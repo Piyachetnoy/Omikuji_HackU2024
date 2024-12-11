@@ -139,3 +139,4 @@ urllib3==2.2.3
 Werkzeug==3.1.3
 yarl==1.18.3
 zxing-cpp==2.2.0
+gunicorn==23.0.0
