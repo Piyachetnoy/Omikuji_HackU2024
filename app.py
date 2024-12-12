@@ -32,8 +32,9 @@ def index():
 
 @app.route('/showcase')
 def showcase():
+    # Get a list of all images in the upload folder
     random_image = get_random_image()
-    return render_template('showcase.html', random_image=random_image) # Return the 'showcase.html' template and pass the random image filename
+    return render_template('showcase.html', image_files=image_files)
 
 @app.route('/random_image')
 def random_image():
