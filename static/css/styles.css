@@ -73,6 +73,29 @@ body::before {
     padding: 10px 0;
     z-index: 1000;
 }
+
+.bottom-menu {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent gray background */
+    border-radius: 15px; /* Rounded edges */
+    padding: 10px; /* Optional: Adjust padding for spacing */
+}
+
+.bottom-menu a {
+    color: white; /* White text color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 0.8rem;
+}
+
+.bottom-menu a:hover {
+    color: #d3d3d3; /* Optional: Light gray on hover */
+}
+
+.bottom-menu i {
+    font-size: 1rem; /* Adjust icon size */
+    margin-bottom: 5px; /* Add spacing below the icon */
+}
+
+
 .bottom-menubar a {
     text-decoration: none;
     color: black;
