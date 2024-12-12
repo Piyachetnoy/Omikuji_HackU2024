@@ -35,7 +35,7 @@ body::before {
 }
 
 .mt-6 {
-    margin-top: 8rem; /* Example: larger than mt-5 */
+    margin-top: 4rem; /* Example: larger than mt-5 */
 }
 
 .content {
@@ -58,4 +58,28 @@ body::before {
 
 .custom-button:hover {
     background-color: #218838;
+}
+
+.bottom-menubar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+.bottom-menubar a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.bottom-menubar a i {
+    display: block;
+    font-size: 1rem;
 }
