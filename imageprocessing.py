@@ -15,6 +15,23 @@ class PreProcessImage():
     def __init__(self, image_path):
         self.path = image_path
 
+    def resize_with_aspect_ratio(self, width=None, height=None):
+        # Get the original image dimensions
+        image_before_resize = cv2.imread(self.path)
+        h, w = image_before_resize.shape[:2]
+        # Calculate the aspect ratio
+        aspect_ratio = w / h
+        if width is None:
+            # Calculate height based on the specified width
+            new_height = int(height / aspect_ratio)
+            resized_image = cv2.resize(image_before_resize, (height, new_height))
+        else:
+            # Calculate width based on the specified height
+            new_width = int(width * aspect_ratio)
+            resized_image = cv2.resize(image_before_resize, (new_width, width))
+        cv2.imwrite(self.path, resized_image)
+        return 
+
     def CannyProcess(self):
         image = cv2.imread(self.path, cv2.IMREAD_GRAYSCALE)
         smoothed_image = cv2.GaussianBlur(image, (7, 7), 0)
@@ -119,7 +136,7 @@ class ModelApply():
             cv2.rectangle(org_image, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
 
             # Crop the region within the bounding box
-            cropped_image = image[y_min:y_max, x_min:x_max]
+            cropped_image = cv2.bitwise_not(image[y_min:y_max, x_min:x_max])
             # Resize the crop to match the bounding box size
             crop_resized = cv2.resize(cropped_image, (x_max - x_min, y_max - y_min))
             # Replace the bounding box area with the resized crop
