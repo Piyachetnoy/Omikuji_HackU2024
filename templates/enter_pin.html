@@ -1,30 +1,49 @@
 <!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter PIN</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enter PIN</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/styles.css">
+    </head>
+    <body >
+        <div class="container mt-6 text-center">
+            <h1 class="display-5 text-white">管理者専用 Enter PIN</h1>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            <form method="POST">
+                <input type="password" name="pin" placeholder="4-digit PIN" required maxlength="4" minlength="4" style="font-size: 1.2rem; padding: 5px;">
+                <button type="submit" style="font-size: 1.2rem; padding: 5px 10px;">Submit</button>
+            </form>
+        </div>
+        
+        <!-- Bottom Menu Bar -->
+        <div class="bottom-menubar">
+            <a href="{{ url_for('index') }}"><i class="bi bi-house-fill"></i>ホーム</a>
+            <a href="{{ url_for('showcase') }}"><i class="bi bi-image"></i>みんなのお正月</a>
+            <a href="{{ url_for('manage_uploads') }}"><i class="bi bi-person-circle"></i>管理者</a>
+        </div>
 
-    <link rel="stylesheet" href="../static/css/styles.css">
-</head>
-<body>
-    <div style="text-align: center; margin-top: 50px;">
-        <h1>Enter PIN</h1>
-        {% if error %}
-            <p style="color: red;">{{ error }}</p>
-        {% endif %}
-        <form method="POST">
-            <input type="password" name="pin" placeholder="4-digit PIN" required maxlength="4" minlength="4" style="font-size: 1.2rem; padding: 5px;">
-            <button type="submit" style="font-size: 1.2rem; padding: 5px 10px;">Submit</button>
-        </form>
-    </div>
+        <script>
+            // Array of image paths
+            const images = [
+                '../static/images/img/bg/bg1.jpg',
+                '../static/images/img/bg/bg2.jpg',
+                '../static/images/img/bg/bg3.jpg'
+            ];
 
-    <div class="bottom-menubar">
-        <a href="{{ url_for('index') }}"><i class="bi bi-house-fill"></i>ホーム</a>
-        <a href="{{ url_for('showcase') }}"><i class="bi bi-image"></i>みんなのお正月</a>
-        <a href="{{ url_for('manage_uploads') }}"><i class="bi bi-person-circle"></i>管理者</a>
-    </div>
-</body>
+            // Select a random image and apply it to the body
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            document.body.style.backgroundImage = `url(${randomImage})`;
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+            document.body.style.backgroundRepeat = 'no-repeat';
+
+            // Fallback background color (optional)
+            document.body.style.backgroundColor = '#f8f9fa';
+        </script>
+    </body>
 </html>
