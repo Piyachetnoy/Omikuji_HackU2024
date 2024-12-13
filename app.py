@@ -30,15 +30,21 @@ def get_random_image():
 def index():
     return render_template('index.html')
 
+# @app.route('/showcase')
+# def showcase():
+#     random_image = get_random_image()
+#     return render_template('showcase.html', random_image=random_image) # Return the 'showcase.html' template and pass the random image filename
+
 @app.route('/showcase')
 def showcase():
-    random_image = get_random_image()
-    return render_template('showcase.html', random_image=random_image) # Return the 'showcase.html' template and pass the random image filename
+    image_folder = './static/upload/'
+    image_files = [f for f in os.listdir(image_folder) if f.endswith(('jpg', 'jpeg', 'png', 'gif'))]
+    return render_template('showcase.html', image_files=image_files)
 
-@app.route('/random_image')
-def random_image():
-    random_image = get_random_image()
-    return jsonify({'random_image': random_image}) # Return the filename of the random image
+# @app.route('/random_image')
+# def random_image():
+#     random_image = get_random_image()
+#     return jsonify({'random_image': random_image}) # Return the filename of the random image
 
 @app.route('/process-upload', methods=['POST'])
 def process_upload():

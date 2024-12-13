@@ -1,0 +1,19 @@
+  #slideshow {
+    margin: 20px auto;
+    max-width: 80%;
+    height: 400px; /* Fixed height for the carousel */
+  }
+
+  .carousel-inner {
+    height: 100%; /* Ensure the inner content fills the fixed height */
+  }
+
+  .carousel-item {
+    height: 100%; /* Ensure each slide takes the full height of the container */
+  }
+
+  .carousel-item img {
+    object-fit: contain; /* Ensures that the image covers the entire slide box without distortion */
+    height: 100%; /* Makes the image fill the slide box height */
+    width: 100%; /* Ensures that the image fills the width as well */
+  }
