@@ -63,11 +63,13 @@ To enable model detection, you need to set up your **Roboflow API key**. Follow 
     ```bash
     touch .env
     ```
-3. **Add Your API Key**  
+3. **Add Your API Key & Photos Management Page Passkey**  
     Open the `.env` file in any text editor and add the following line:
     Replace `<YOUR_API_KEY>` with your actual Roboflow API key.
+    Replace `<YOUR_PIN>` with whatever PIN you want.
     ```bash
     ROBOFLOW_KEY=<YOUR_API_KEY>
+    ADMIN_PASSWORD=<YOUR_PIN>
     ```
 ---
 
